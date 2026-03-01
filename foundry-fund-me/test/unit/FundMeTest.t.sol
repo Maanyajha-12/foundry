@@ -2,6 +2,8 @@
 pragma solidity ^0.8.31;
 import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../src/FundMe.sol";
+import {MockV3Aggregator} from "./test/MockV3Aggregator.sol";
+
 contract FundMeTest is Test {
     FundMe fundMe;
     function setUp() external {
@@ -11,6 +13,7 @@ contract FundMeTest is Test {
         assertEq(fundMe.MINIMUMUSD(), 5 * 10 ** 18);
     }
     function testownerismsgsender() public view {
-        assertEq(fundMe.i_owner(), address(this));
+        assertEq(fundMe.getOwner(), address(this));
     }
+
 }
