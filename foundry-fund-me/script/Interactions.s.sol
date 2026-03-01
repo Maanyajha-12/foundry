@@ -4,8 +4,9 @@ pragma solidity ^0.8.31;
 import {Script, console} from "forge-std/Script.sol";
 import {FundMe} from "../src/FundMe.sol";
 import {DevOpsTools} from "../lib/foundry-devops/src/DevOpsTools.sol";
+
 contract FundFundMe is Script {
-    uint256 SEND_VALUE = 0.1 ether;
+    uint256 constant SEND_VALUE = 0.1 ether;
 
     function fundFundMe(address mostRecentlyDeployed) public {
         vm.startBroadcast();

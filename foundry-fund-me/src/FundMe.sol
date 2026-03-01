@@ -32,6 +32,7 @@ contract FundMe {
 
     modifier onlyOwner() {
         //require(msg.sender == i_owner, "sender is not the owner");
+        //we changed it into custom error for gas optimization.
         if (msg.sender != i_owner) {
             revert FundMe__NotOwner();
         }
@@ -75,7 +76,8 @@ contract FundMe {
     fallback() external payable {
         fund();
     }
-//getterfunction
+//getterfunctions
+
     function getFunder(uint256 index) public view returns (address) {
         return s_funders[index];
     }
@@ -86,5 +88,8 @@ contract FundMe {
 
     function getPriceFeed() public view returns (AggregatorV3Interface) {
         return s_priceFeed;
+    }
+    function getAddresstoAmountFunded(address funder) public view returns (uint256) {
+        return s_addressToAmountFunded[funder];
     }
 }
