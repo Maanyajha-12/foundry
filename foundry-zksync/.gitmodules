@@ -1,3 +1,0 @@
-[submodule "lib/foundry-zksync"]
-	path = lib/foundry-zksync
-	url = https://github.com/matter-labs/foundry-zksync
